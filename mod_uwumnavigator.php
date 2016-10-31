@@ -20,9 +20,18 @@ $doc->addScript(JURI::base() . '/modules/mod_uwumnavigator/assets/js/uwum_nav.js
 $app =JFactory::getApplication();
 $token = $app->getUserState('uwum_access_token', null);
 
-if (is_null($token) && !JFactory::getUser()->guest)
+//echo $_COOKIE['imc_uwum_login'];
+
+if (isset($_COOKIE['imc_uwum_login']) && $_COOKIE['imc_uwum_login'] == 'false' && !JFactory::getUser()->guest)
 {
-	ModUwumnavigatorHelper::quickLogout();
+	//ModUwumnavigatorHelper::quickLogout();
+	echo "Should locally logout automatically";
+}
+
+if (isset($_COOKIE['imc_uwum_login']) && $_COOKIE['imc_uwum_login'] == 'true' && JFactory::getUser()->guest)
+{
+	//ModUwumnavigatorHelper::quickLogin();
+	echo "Should locally login automatically";
 }
 
 
@@ -32,7 +41,6 @@ if (is_null($token) && !JFactory::getUser()->guest)
 //TODO: get host and arguments from module options
 $host = "https://wegovnow.liquidfeedback.com/api/1/navigation?client_id=wegovnow.infalia.com";
 $navbar = ModUwumnavigatorHelper::makeNavigation($host, $token);
-
 
 //get default layout
 require JModuleHelper::getLayoutPath('mod_uwumnavigator', 'default');

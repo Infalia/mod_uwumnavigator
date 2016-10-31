@@ -20,6 +20,13 @@ class ModUwumnavigatorHelper {
 		exit;
 	}
 
+	public static function quickLogin()
+	{
+		$url = 'https://wegovnow.infalia.com/component/slogin/provider/uwum/auth';
+		header('Location: ' . $url);
+		exit;
+	}
+
 	public static function makeNavigation($host, $token)
 	{
 

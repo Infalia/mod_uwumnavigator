@@ -12,6 +12,6 @@ echo $navbar;
 ?>
 
 
-<p><button id="cors">Test CORS with JS</button>
+<p><!--<button id="cors">Test CORS with JS</button>-->
 Token: <?php echo (is_null($token) ? 'it is null' : $token); ?>
 </p>
