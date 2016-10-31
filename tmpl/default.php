@@ -8,9 +8,10 @@
  */
 
 defined('_JEXEC') or die;
-$app =JFactory::getApplication();
-$token = $app->getUserState('uwum_access_token');
+echo $navbar;
 ?>
 
-<p>Hello I am UWUM CORS tester: <button id="cors">Test UWUM through CORS</button></p>
-<p>Token is: <?php echo $token; ?>
+
+<p><button id="cors">Test CORS with JS</button>
+Token: <?php echo (is_null($token) ? 'it is null' : $token); ?>
+</p>
