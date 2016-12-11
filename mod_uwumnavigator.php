@@ -18,10 +18,11 @@ $doc->addScript(JURI::base() . '/modules/mod_uwumnavigator/assets/js/uwum_nav.js
 
 //get token from state if any
 $app =JFactory::getApplication();
-$token = $app->getUserState('uwum_access_token', null);
+$token = $app->getUserState('uwum_access_token', null); //user state is set on plg_SL_uwum
 
 //echo $_COOKIE['imc_uwum_login'];
 
+/* does not work well (depracated... to be removed)
 if (isset($_COOKIE['imc_uwum_login']) && $_COOKIE['imc_uwum_login'] == 'false' && !JFactory::getUser()->guest)
 {
 	//ModUwumnavigatorHelper::quickLogout();
@@ -33,7 +34,7 @@ if (isset($_COOKIE['imc_uwum_login']) && $_COOKIE['imc_uwum_login'] == 'true' &&
 	//ModUwumnavigatorHelper::quickLogin();
 	echo "Should locally login automatically";
 }
-
+*/
 
 //$foo = ModUwumnavigatorHelper::checkCORS();
 //print_r($foo);
