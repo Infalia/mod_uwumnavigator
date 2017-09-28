@@ -1,8 +1,8 @@
 <?php
 /**
- * @version     1.0.0
+ * @version     1.0.1
  * @package     mod_uwumnavigator
- * @copyright   Copyright (C) 2016. All rights reserved. Infalia PC
+ * @copyright   Copyright (C) 2016-2017. All rights reserved. Infalia Private Company
  * @license     MIT; see LICENSE
  * @author      Ioannis Tsampoulatidis <itsam@infalia.com> - https://github.com/infalia
  */

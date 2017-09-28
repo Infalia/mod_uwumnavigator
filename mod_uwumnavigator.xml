@@ -2,12 +2,13 @@
 <extension type="module" version="3.0" method="upgrade" client="site">
     <name>WeGovNow UWUM Navigator</name>
     <creationDate>2016-10-25</creationDate>
-    <copyright>Copyright (C) 2016. All rights reserved.</copyright>
+    <updateDate>2017-09-28</updateDate>
+    <copyright>Copyright (C) 2016-2017. All rights reserved.</copyright>
     <license>MIT; see LICENSE</license>
     <author>Ioannis Tsampoulatidis</author>
     <authorEmail>itsam@infalia.com</authorEmail>
     <authorUrl>https://github.com/itsam</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>MOD_IMCUWUMNAVIGATOR_DESCRIPTION</description>
     
     <files>
