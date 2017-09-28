@@ -13,9 +13,9 @@ defined('_JEXEC') or die;
 class ModUwumnavigatorHelper {
 
 
-	public static function getHTMLNavigation($host)
+	public static function getHTMLNavigation($host, $token)
 	{
-		$ch = curl_init($host);
+		$ch = curl_init($host . (is_null($token) ? '' : '&access_token='.$token) );
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 

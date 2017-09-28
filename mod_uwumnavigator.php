@@ -25,7 +25,6 @@ $token = $app->getUserState('uwum_access_token', null); //user state is set on p
 $prms = array(
 	'client_id=' . $params->get('client_id'),
 	'login_url=' . $params->get('login_url'),
-	'access_token=' . $token,
 	'format=html'
 );
 $prms = implode('&', $prms);
@@ -35,7 +34,7 @@ $host = $params->get('navigation_url') . '?' . $prms;
 //$navbar = ModUwumnavigatorHelper::makeNavigation($host, $token);
 $session_url = $params->get('session_url');
 $login_url = $params->get('login_url');
-$navbar = ModUwumnavigatorHelper::getHTMLNavigation($host);
+$navbar = ModUwumnavigatorHelper::getHTMLNavigation($host, $token);
 
 //get default layout
 require JModuleHelper::getLayoutPath('mod_uwumnavigator', 'default');
