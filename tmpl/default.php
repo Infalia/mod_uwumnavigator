@@ -15,7 +15,8 @@ echo $navbar;
 
     function checkWeGovNowSession(callback) {
         var xhr = new XMLHttpRequest();
-        var url = "https://wegovnow.liquidfeedback.com/api/1/session";
+        //var url = "https://wegovnow.liquidfeedback.com/api/1/session";
+        var url = "<?php echo $session_url;?>";
         xhr.open("POST", url, true);
         xhr.withCredentials = true; // sends UWUM cookies to UWUM (important)
         xhr.onreadystatechange = function() {
@@ -47,7 +48,8 @@ echo $navbar;
                     window.location.reload();
                 }
                 if(json.data.action === 'login'){
-                    window.location = 'https://wegovnow.infalia.com/component/slogin/provider/uwum/auth';
+                    //window.location = 'https://wegovnow.infalia.com/component/slogin/provider/uwum/auth';
+                    window.location = "<?php echo $login_url;?>";
                 }
             },
             'error': function (error) {

@@ -7,7 +7,7 @@
  * @license     MIT; see LICENSE
  * @author      Ioannis Tsampoulatidis <itsam@infalia.com> - https://github.com/infalia
  */
- 
+
 defined('_JEXEC') or die;
 
 // Include the syndicate functions only once
@@ -21,28 +21,21 @@ $doc->addScript(JURI::base() . '/modules/mod_uwumnavigator/assets/js/uwum_nav.js
 $app =JFactory::getApplication();
 $token = $app->getUserState('uwum_access_token', null); //user state is set on plg_SL_uwum
 
-//echo $_COOKIE['imc_uwum_login'];
-
-/* does not work well (depracated... to be removed)
-if (isset($_COOKIE['imc_uwum_login']) && $_COOKIE['imc_uwum_login'] == 'false' && !JFactory::getUser()->guest)
-{
-	//ModUwumnavigatorHelper::quickLogout();
-	echo "Should locally logout automatically";
-}
-
-if (isset($_COOKIE['imc_uwum_login']) && $_COOKIE['imc_uwum_login'] == 'true' && JFactory::getUser()->guest)
-{
-	//ModUwumnavigatorHelper::quickLogin();
-	echo "Should locally login automatically";
-}
-*/
-
-//$foo = ModUwumnavigatorHelper::checkCORS();
-//print_r($foo);
-
 //TODO: get host and arguments from module options
-$host = "https://wegovnow.liquidfeedback.com/api/1/navigation?client_id=wegovnow.infalia.com";
-$navbar = ModUwumnavigatorHelper::makeNavigation($host, $token);
+$prms = array(
+	'client_id=' . $params->get('client_id'),
+	'login_url=' . $params->get('login_url'),
+	'access_token=' . $token,
+	'format=html'
+);
+$prms = implode('&', $prms);
+//$host = "https://wegovnow.liquidfeedback.com/api/1/navigation?client_id=wegovnow.infalia.com";
+$host = $params->get('navigation_url') . '?' . $prms;
+
+//$navbar = ModUwumnavigatorHelper::makeNavigation($host, $token);
+$session_url = $params->get('session_url');
+$login_url = $params->get('login_url');
+$navbar = ModUwumnavigatorHelper::getHTMLNavigation($host);
 
 //get default layout
 require JModuleHelper::getLayoutPath('mod_uwumnavigator', 'default');

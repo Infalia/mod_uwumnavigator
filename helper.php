@@ -12,6 +12,28 @@ defined('_JEXEC') or die;
 
 class ModUwumnavigatorHelper {
 
+
+	public static function getHTMLNavigation($host)
+	{
+		$ch = curl_init($host);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+		$result = curl_exec($ch);
+		curl_close($ch);
+		$html = json_decode($result);
+		
+		if(!is_object($html))
+		{
+			return self::getFallbackNavbar();
+		}
+
+		return $html->result;
+	}
+
+	/**
+	* 	DEPRECATED Method
+	*/	
 	public static function quickLogout()
 	{
 		$return = base64_encode('https://wegovnow.infalia.com');
@@ -20,6 +42,9 @@ class ModUwumnavigatorHelper {
 		exit;
 	}
 
+	/**
+	* 	DEPRECATED Method
+	*/
 	public static function quickLogin()
 	{
 		$url = 'https://wegovnow.infalia.com/component/slogin/provider/uwum/auth';
@@ -27,6 +52,9 @@ class ModUwumnavigatorHelper {
 		exit;
 	}
 
+	/**
+	* 	DEPRECATED Method
+	*/
 	public static function makeNavigation($host, $token)
 	{
 
@@ -81,6 +109,9 @@ class ModUwumnavigatorHelper {
 		return $html;
 	}
 
+	/**
+	* 	DEPRECATED Method
+	*/	
 	private static function getCookie($host)
 	{
 		$ch = curl_init($host);
@@ -111,6 +142,10 @@ class ModUwumnavigatorHelper {
 		return $cookies;
 	}
 
+
+	/**
+	* 	DEPRECATED Method
+	*/	
 	/*
 	 * Simulates xhr with cookie
 	 * http://stackoverflow.com/questions/5972443/php-simulate-xhr-using-curl
@@ -161,11 +196,7 @@ class ModUwumnavigatorHelper {
             <!-- UWUM fallback STATIC navigation bar -->
             <div class="meta_navigation">
               <ul class="nav">
-                <li><a href="http://wegovnow.firstlife.di.unito.it/"><em>FirstLife</em><br />map &amp; plan</a></li>
-                <li class="active"><a href="https://wegovnow.infalia.com/"><em>Improve My City</em><br />report local issues</a></li>
-                <li><a href="https://wegovnow.liquidfeedback.com/"><em>LiquidFeedback</em><br />debate &amp; decide</a></li>
-                <li><a href="http://wegovnow-cm.geokey.org.uk/"><em>Community Maps</em><br />collect &amp; share</a></li>
-                <li class="member_account"><a href="https://wegovnow.infalia.com/component/slogin/provider/uwum/auth"><em>Login</em><br />or register</a></li>  
+                CANNOT CONNECT TO UWUM
               </ul>
             </div>		
 		';

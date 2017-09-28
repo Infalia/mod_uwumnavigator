@@ -25,14 +25,27 @@
     <config>
         <fields name="params">
             <fieldset name="advanced">
-                <field name="sample"
-                    type="radio"
-                    default="0"
-                    class="btn-group btn-group-yesno"
-                    label="Sample parameter">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
+
+				<field name="client_id" 
+                    type="text" 
+					default="wegovnow.infalia.com" 
+					label="Client ID" />
+
+				<field name="login_url" 
+                    type="text" 
+					default="https://wegovnow.infalia.com/component/slogin/provider/uwum/auth" 
+					label="Login URL" />
+
+				<field name="navigation_url" 
+                    type="text" 
+					default="https://wegovnow.liquidfeedback.com/api/1/navigation" 
+					label="Navigation URL" />
+
+				<field name="session_url" 
+                    type="text" 
+					default="https://wegovnow.liquidfeedback.com/api/1/session" 
+					label="Session URL" />
+
             </fieldset>
         </fields>
     </config>
